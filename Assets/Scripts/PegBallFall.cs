@@ -20,12 +20,7 @@ public class PegBallFall : MonoBehaviour
 
     private void Awake()
     {
-        falling = false;
-        canDrop = true;
-        rb2d.gravityScale = 0;
-
-        //playerControls = new PlayerInputActions();
-        StartCoroutine(BallSwing());
+        ResetBall();
     }
 
     private void Update()
@@ -120,6 +115,12 @@ public class PegBallFall : MonoBehaviour
     {
         transform.position = startingPosition;
         falling = false;
+        canDrop = true;
+        rb2d.gravityScale = 0;
         StartCoroutine(BallSwing());
+        OnResetBall?.Invoke();
     }
+
+    public delegate void OnResetBallDelegate();
+    public event OnResetBallDelegate OnResetBall;
 }

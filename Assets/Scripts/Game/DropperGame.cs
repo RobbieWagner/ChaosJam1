@@ -9,7 +9,7 @@ public class DropperGame : MonoBehaviour
 
     [Header("Bottom")]
     [SerializeField] private Transform bottom;
-    [SerializeField] private List<BallResetter> activeBallResetters;
+    [SerializeField] private BallResetterManager ballResetterManager;
 
     [Header("Build")]
     [SerializeField] private float startingRowYPos;

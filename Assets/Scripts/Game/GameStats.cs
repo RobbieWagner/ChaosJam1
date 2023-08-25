@@ -36,4 +36,13 @@ public class GameStats : MonoBehaviour
         if(currencies[index] > 99999) currencies[index] = 99999;
         currencyTexts[index].text = currencies[index].ToString();
     }
+
+    public Color GetCurrencyColor(CurrencyType currencyType)
+    {
+        if(currencyType == CurrencyType.RED) return Color.red;
+        if(currencyType == CurrencyType.GREEN) return Color.green;
+        if(currencyType == CurrencyType.BLUE) return Color.blue;
+        if(currencyType == CurrencyType.YELLOW) return Color.yellow;
+        else return Color.black;
+    }
 }

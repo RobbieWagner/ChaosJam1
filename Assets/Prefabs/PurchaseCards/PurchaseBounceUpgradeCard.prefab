@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 6573648324929638398}
   - component: {fileID: 2368391484039613077}
   m_Layer: 5
-  m_Name: PurchaseCard
+  m_Name: PurchaseBounceUpgradeCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,6 +274,8 @@ MonoBehaviour:
   button: {fileID: 6573648324929638398}
   shopItem: {fileID: 11400000, guid: d9a18d2f2c410ef419a45aad02fbf767, type: 2}
   shop: {fileID: 0}
+  itemText: {fileID: 6573648326232645765}
+  costText: {fileID: 7014600575350432244}
 --- !u!1 &6573648326232645763
 GameObject:
   m_ObjectHideFlags: 0

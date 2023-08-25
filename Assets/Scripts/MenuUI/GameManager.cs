@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     private bool canEnterShop = false;
-    [SerializeField] private PegBallFall ball;
+    [SerializeField] public PegBallFall ball;
 
     [SerializeField] private Shop upgradesShop;
 

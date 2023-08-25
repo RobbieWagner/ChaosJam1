@@ -12,6 +12,10 @@ public class PurchaseItem : ScriptableObject
     [SerializeReference] public List<GameEffect> effects;
 
     [ContextMenu(nameof(AddBounceEffect))] void AddBounceEffect(){effects.Add(new AddBounce());}
+    [ContextMenu(nameof(AddCurrencyMultiplierEffect))] void AddCurrencyMultiplierEffect(){effects.Add(new AddCurrencyMultiplier());}
+    [ContextMenu(nameof(AddRowEffect))] void AddRowEffect(){effects.Add(new AddRow());}
+
+    [ContextMenu(nameof(AddCurrencyEffect))] void AddCurrencyEffect(){effects.Add(new AddCurrency());}
     [ContextMenu(nameof(Clear))] void Clear(){effects.Clear();}
 
     public bool Buy()
@@ -19,15 +23,14 @@ public class PurchaseItem : ScriptableObject
         if(GameStats.Instance.currencies[(int)currencyType] >= cost)
         {
             GameStats.Instance.AddCurrency(currencyType, -cost);
-            ApplyPurchaseEffects();
+            ApplyEffects();
             return true;
         }
         return false;
     }
 
-    private void ApplyPurchaseEffects()
+    public void ApplyEffects()
     {
-        Debug.Log("bought");
         foreach(GameEffect effect in effects)
         {
             effect.ApplyPurchaseEffect();
