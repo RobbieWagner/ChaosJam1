@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class DropperGame : MonoBehaviour
 {
+    [Header("Top")]
     [SerializeField] private Transform top;
-    [SerializeField] private Transform bottom;
 
+    [Header("Bottom")]
+    [SerializeField] private Transform bottom;
+    [SerializeField] private List<BallResetter> activeBallResetters;
+
+    [Header("Build")]
     [SerializeField] private float startingRowYPos;
     private float newRowYPos;
 

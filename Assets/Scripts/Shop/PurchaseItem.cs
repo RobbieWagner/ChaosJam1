@@ -9,7 +9,7 @@ public class PurchaseItem : ScriptableObject
     [SerializeField] public int cost;
     [SerializeField] public CurrencyType currencyType;
 
-    [SerializeReference] public List<PurchaseEffect> effects;
+    [SerializeReference] public List<GameEffect> effects;
 
     [ContextMenu(nameof(AddBounceEffect))] void AddBounceEffect(){effects.Add(new AddBounce());}
     [ContextMenu(nameof(Clear))] void Clear(){effects.Clear();}
@@ -28,7 +28,7 @@ public class PurchaseItem : ScriptableObject
     private void ApplyPurchaseEffects()
     {
         Debug.Log("bought");
-        foreach(PurchaseEffect effect in effects)
+        foreach(GameEffect effect in effects)
         {
             effect.ApplyPurchaseEffect();
         }

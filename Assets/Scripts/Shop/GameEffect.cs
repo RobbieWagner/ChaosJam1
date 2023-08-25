@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class PurchaseEffect
+public class GameEffect
 {
     [SerializeField] private int magnitude;
     public virtual void ApplyPurchaseEffect()
@@ -14,7 +14,7 @@ public class PurchaseEffect
 }
 
 [Serializable]
-public class AddBounce: PurchaseEffect
+public class AddBounce: GameEffect
 {
     public override void ApplyPurchaseEffect()
     {
@@ -25,7 +25,7 @@ public class AddBounce: PurchaseEffect
 }
 
 [Serializable]
-public class AddCurrencyMultiplier: PurchaseEffect
+public class AddCurrencyMultiplier: GameEffect
 {
     public override void ApplyPurchaseEffect()
     {

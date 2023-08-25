@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc5d7f48eeda7c948810452bf6b3a011, type: 3}
-  m_Name: Bounce+
+  m_Name: AddCurrency
   m_EditorClassIdentifier: 
+  name: AddCurrency
   cost: 10
   currencyType: 0
   effects:

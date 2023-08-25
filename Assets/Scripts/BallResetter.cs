@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallReseter : MonoBehaviour
+public class BallResetter : MonoBehaviour
 {
     [SerializeField] private PegBallFall player;
     private bool resetting = false;
