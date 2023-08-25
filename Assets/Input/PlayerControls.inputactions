@@ -2,13 +2,22 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Dropper",
+            "name": "Game",
             "id": "3d2052d5-a651-46e0-b1f1-75147dcbcc0a",
             "actions": [
                 {
                     "name": "DropButton",
                     "type": "Button",
                     "id": "e9798791-2b45-4cb4-a7e6-c48b80b81b96",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleUpgradesShop",
+                    "type": "Button",
+                    "id": "ec9f819a-1ed7-45b3-8ce3-721d1ee4d6d4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -35,6 +44,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "DropButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb5cc65c-1fb4-4b9f-b3bc-f951847c122a",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleUpgradesShop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a9e0095-42a4-4dc5-8b51-93e970fcdf30",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleUpgradesShop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

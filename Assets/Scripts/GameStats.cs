@@ -8,7 +8,7 @@ public class GameStats : MonoBehaviour
 
     public static GameStats Instance {get; private set;}
 
-    private int[] currencies; 
+    public int[] currencies {get; private set;} 
     [SerializeField] List<TextMeshProUGUI> currencyTexts;
 
     private void Awake()

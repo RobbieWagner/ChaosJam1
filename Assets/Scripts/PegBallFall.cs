@@ -10,8 +10,8 @@ public class PegBallFall : MonoBehaviour
     private bool waitingToMove = false;
     private IEnumerator movementCoroutine = null;
 
-    private bool falling = false;
-    //private PlayerInputActions playerControls;
+    [HideInInspector] public bool falling {get; private set;}
+    [HideInInspector] public bool canDrop = true;
 
     [Header("Ball Swing")]
     [SerializeField] private float maxXSwingPosition;
@@ -20,6 +20,8 @@ public class PegBallFall : MonoBehaviour
 
     private void Awake()
     {
+        falling = false;
+        canDrop = true;
         rb2d.gravityScale = 0;
 
         //playerControls = new PlayerInputActions();
@@ -78,7 +80,7 @@ public class PegBallFall : MonoBehaviour
         bool swingRight = true;
         Vector2 maxPos = new Vector2(transform.position.x + maxXSwingPosition, transform.position.y);
         Vector2 minPos = new Vector2(transform.position.x + minXSwingPosition, transform.position.y);
-        float speed = 4f;
+        float speed = 6f;
         
         while(!falling)
         {
@@ -107,7 +109,7 @@ public class PegBallFall : MonoBehaviour
 
     private void OnDropButton()
     {
-        if(!falling)
+        if(!falling && canDrop)
         {
             rb2d.gravityScale = 1;
             falling = true;
@@ -118,5 +120,6 @@ public class PegBallFall : MonoBehaviour
     {
         transform.position = startingPosition;
         falling = false;
+        StartCoroutine(BallSwing());
     }
 }

@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
+
+    private bool canEnterShop = false;
+    [SerializeField] private PegBallFall ball;
+
+    [SerializeField] private Shop upgradesShop;
 
     public static GameManager Instance {get; private set;}
     private void Awake()
@@ -27,4 +34,30 @@ public class GameManager : MonoBehaviour
 
     public delegate void SaveGameDelegate();
     public event SaveGameDelegate OnSaveGame;
+
+    private void Update()
+    {
+        if(!ball.falling)
+        {
+            canEnterShop = true;
+        }
+        else
+        {
+            canEnterShop = false;
+        }
+    }
+
+    private void OnToggleUpgradesShop(InputValue inputValue)
+    {
+        if(canEnterShop && !upgradesShop.shopDisplayed)
+        {
+            upgradesShop.EnterShop();
+            ball.canDrop = false;
+        }
+        else if(upgradesShop.shopDisplayed)
+        {
+            upgradesShop.LeaveShop();
+            ball.canDrop = true;
+        }
+    }
 }

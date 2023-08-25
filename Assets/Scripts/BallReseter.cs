@@ -13,7 +13,7 @@ public class BallReseter : MonoBehaviour
         if(other.gameObject == player.gameObject && !resetting)
         {
             resetting = true;
-            resetCoroutine = ResetGame();
+            resetCoroutine = ResetGameCo();
             StartCoroutine(resetCoroutine);
         }
     }
@@ -31,14 +31,20 @@ public class BallReseter : MonoBehaviour
         }
     }
 
-    private IEnumerator ResetGame()
+    private IEnumerator ResetGameCo()
     {
         yield return new WaitForSeconds(2f);
+
+        ResetGame();
+
+        StopCoroutine(ResetGameCo());
+    }
+
+    protected virtual void ResetGame()
+    {
         player.ResetBall();
 
         resetCoroutine = null;
         resetting = false;
-
-        StopCoroutine(ResetGame());
     }
 }

@@ -24,13 +24,22 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Dropper"",
+            ""name"": ""Game"",
             ""id"": ""3d2052d5-a651-46e0-b1f1-75147dcbcc0a"",
             ""actions"": [
                 {
                     ""name"": ""DropButton"",
                     ""type"": ""Button"",
                     ""id"": ""e9798791-2b45-4cb4-a7e6-c48b80b81b96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleUpgradesShop"",
+                    ""type"": ""Button"",
+                    ""id"": ""ec9f819a-1ed7-45b3-8ce3-721d1ee4d6d4"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -59,15 +68,38 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""DropButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb5cc65c-1fb4-4b9f-b3bc-f951847c122a"",
+                    ""path"": ""<Keyboard>/u"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleUpgradesShop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a9e0095-42a4-4dc5-8b51-93e970fcdf30"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleUpgradesShop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Dropper
-        m_Dropper = asset.FindActionMap("Dropper", throwIfNotFound: true);
-        m_Dropper_DropButton = m_Dropper.FindAction("DropButton", throwIfNotFound: true);
+        // Game
+        m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
+        m_Game_DropButton = m_Game.FindAction("DropButton", throwIfNotFound: true);
+        m_Game_ToggleUpgradesShop = m_Game.FindAction("ToggleUpgradesShop", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -124,40 +156,49 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Dropper
-    private readonly InputActionMap m_Dropper;
-    private IDropperActions m_DropperActionsCallbackInterface;
-    private readonly InputAction m_Dropper_DropButton;
-    public struct DropperActions
+    // Game
+    private readonly InputActionMap m_Game;
+    private IGameActions m_GameActionsCallbackInterface;
+    private readonly InputAction m_Game_DropButton;
+    private readonly InputAction m_Game_ToggleUpgradesShop;
+    public struct GameActions
     {
         private @PlayerControls m_Wrapper;
-        public DropperActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @DropButton => m_Wrapper.m_Dropper_DropButton;
-        public InputActionMap Get() { return m_Wrapper.m_Dropper; }
+        public GameActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @DropButton => m_Wrapper.m_Game_DropButton;
+        public InputAction @ToggleUpgradesShop => m_Wrapper.m_Game_ToggleUpgradesShop;
+        public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(DropperActions set) { return set.Get(); }
-        public void SetCallbacks(IDropperActions instance)
+        public static implicit operator InputActionMap(GameActions set) { return set.Get(); }
+        public void SetCallbacks(IGameActions instance)
         {
-            if (m_Wrapper.m_DropperActionsCallbackInterface != null)
+            if (m_Wrapper.m_GameActionsCallbackInterface != null)
             {
-                @DropButton.started -= m_Wrapper.m_DropperActionsCallbackInterface.OnDropButton;
-                @DropButton.performed -= m_Wrapper.m_DropperActionsCallbackInterface.OnDropButton;
-                @DropButton.canceled -= m_Wrapper.m_DropperActionsCallbackInterface.OnDropButton;
+                @DropButton.started -= m_Wrapper.m_GameActionsCallbackInterface.OnDropButton;
+                @DropButton.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnDropButton;
+                @DropButton.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnDropButton;
+                @ToggleUpgradesShop.started -= m_Wrapper.m_GameActionsCallbackInterface.OnToggleUpgradesShop;
+                @ToggleUpgradesShop.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnToggleUpgradesShop;
+                @ToggleUpgradesShop.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnToggleUpgradesShop;
             }
-            m_Wrapper.m_DropperActionsCallbackInterface = instance;
+            m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @DropButton.started += instance.OnDropButton;
                 @DropButton.performed += instance.OnDropButton;
                 @DropButton.canceled += instance.OnDropButton;
+                @ToggleUpgradesShop.started += instance.OnToggleUpgradesShop;
+                @ToggleUpgradesShop.performed += instance.OnToggleUpgradesShop;
+                @ToggleUpgradesShop.canceled += instance.OnToggleUpgradesShop;
             }
         }
     }
-    public DropperActions @Dropper => new DropperActions(this);
-    public interface IDropperActions
+    public GameActions @Game => new GameActions(this);
+    public interface IGameActions
     {
         void OnDropButton(InputAction.CallbackContext context);
+        void OnToggleUpgradesShop(InputAction.CallbackContext context);
     }
 }
