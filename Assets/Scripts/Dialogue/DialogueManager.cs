@@ -126,7 +126,8 @@ public class DialogueManager : MonoBehaviour
                 }
 
                 currentText.text += nextChar;
-                yield return new WaitForSeconds(.04f);
+                GameSounds.Instance.PlayDialogueSound();
+                yield return new WaitForSeconds(.05f);
             }
 
             currentText.text = currentSentenceText;

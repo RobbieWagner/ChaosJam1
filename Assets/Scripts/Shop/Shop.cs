@@ -74,14 +74,17 @@ public class Shop : MonoBehaviour
 
     public void LeaveShop()
     {
-        foreach(PurchaseButton item in currentDisplayedShopItems)
+        if(hasEnteredShop)
         {
-            Destroy(item.gameObject);
-        }
-        currentDisplayedShopItems.Clear();
+            foreach(PurchaseButton item in currentDisplayedShopItems)
+            {
+                Destroy(item.gameObject);
+            }
+            currentDisplayedShopItems.Clear();
 
-        canvas.enabled = false;
-        shopDisplayed = false;
+            canvas.enabled = false;
+            shopDisplayed = false;
+        }
     }
 
     private IEnumerator ReadFirstTimeShopDialogue()

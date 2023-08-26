@@ -114,6 +114,8 @@ public class PegBallFall : MonoBehaviour
     public void ResetBall()
     {
         transform.position = startingPosition;
+        rb2d.velocity = Vector2.zero;
+        rb2d.angularVelocity = 0;
         falling = false;
         canDrop = true;
         rb2d.gravityScale = 0;
@@ -123,4 +125,12 @@ public class PegBallFall : MonoBehaviour
 
     public delegate void OnResetBallDelegate();
     public event OnResetBallDelegate OnResetBall;
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Ground"))
+        {
+            GameSounds.Instance.PlayBumpSound();
+        }
+    }
 }
