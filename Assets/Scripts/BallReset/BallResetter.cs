@@ -10,7 +10,7 @@ public class BallResetter : MonoBehaviour
     private IEnumerator resetCoroutine = null;
 
     [Header("Game Effect")]
-    [SerializeField] private PurchaseItem gameEffect;
+    private PurchaseItem gameEffect;
     [SerializeField] private SpriteRenderer triggerSprite;
     [SerializeField] private SpriteRenderer gameEffectSprite;
 

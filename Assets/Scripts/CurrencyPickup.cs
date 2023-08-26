@@ -50,7 +50,7 @@ public class CurrencyPickup : MonoBehaviour
     {
         touched = true;
 
-        GameStats.Instance.AddCurrency(currencyType, 1);
+        GameStats.Instance.AddCurrency(currencyType, GameStats.Instance.currencyAddOnPickup);
         yield return spriteRenderer.DOColor(new Color(0,0,0,0), cooldownTime).SetEase(Ease.Linear).WaitForCompletion();
         currencyType = (CurrencyType) ((int) Random.Range(0, 4));
         yield return new WaitForSeconds(.4f);

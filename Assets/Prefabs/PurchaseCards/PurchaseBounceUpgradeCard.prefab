@@ -270,7 +270,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 6573648324929638398}
-  shopItem: {fileID: 11400000, guid: d9a18d2f2c410ef419a45aad02fbf767, type: 2}
+  shopItems:
+  - {fileID: 11400000, guid: d9a18d2f2c410ef419a45aad02fbf767, type: 2}
+  - {fileID: 11400000, guid: 940e654b4811e0a49ba308d335efd856, type: 2}
+  - {fileID: 11400000, guid: 986f9058bc98c2944b1990dc20011540, type: 2}
+  - {fileID: 11400000, guid: b2fec1dfae5353146a75f1a9e84e55ea, type: 2}
+  - {fileID: 11400000, guid: 637dd84be4580b448932f6e9244a1b84, type: 2}
+  - {fileID: 11400000, guid: 1d053238f7f699641a761f606faf979e, type: 2}
+  - {fileID: 11400000, guid: 643038a201194ae43859a9d13e9a8ad1, type: 2}
+  - {fileID: 11400000, guid: 4d786172469979c4ab2cbbc50676a611, type: 2}
+  - {fileID: 11400000, guid: fa338cd58f05ca546a4e16da2d355833, type: 2}
+  - {fileID: 11400000, guid: bc5e54fdf275d5c4f976289f3261f9b4, type: 2}
+  currentItemIndex: 0
   shop: {fileID: 0}
   itemText: {fileID: 6573648326232645765}
   costText: {fileID: 7014600575350432244}

@@ -515,6 +515,9 @@ MonoBehaviour:
   - {fileID: 1621810189}
   - {fileID: 1868088202}
   - {fileID: 2146989605}
+  mutantMaterial: {fileID: 0}
+  currencyAddOnPickup: 0
+  currencyAddOnEffect: 0
 --- !u!4 &211818852
 Transform:
   m_ObjectHideFlags: 0
@@ -708,7 +711,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 265264045}
-  gameEffect: {fileID: 0}
   triggerSprite: {fileID: 233074475}
   gameEffectSprite: {fileID: 1562019501}
 --- !u!1 &265264037
@@ -837,16 +839,16 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b7bf97064462125489a23c27abd62272, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &265264042
 CircleCollider2D:
@@ -1686,6 +1688,7 @@ MonoBehaviour:
   initialShopItems:
   - {fileID: 2368391484039613077, guid: 63d2ca70e8d5d0a4999a1014b1494c6e, type: 3}
   - {fileID: 2368391484039613077, guid: 1ce8ecc47059a0849b5541d49b9cb58f, type: 3}
+  - {fileID: 2368391484039613077, guid: 9c6fa28d9e8e99a49bf873b4cfdcb35d, type: 3}
   hasEnteredShop: 0
   shops:
   - {fileID: 507563481}
@@ -2023,7 +2026,7 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -29.214567, y: 15.270795}
       - {x: -29.19709, y: -16.990883}
-      - {x: -12.954915, y: -16.995047}
+      - {x: -13.018769, y: -16.995047}
       - {x: -9.193867, y: -10.979206}
       - {x: -14.135677, y: -3.4875374}
       - {x: -14.093553, y: 3.1470594}
@@ -61297,7 +61300,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 265264045}
-  gameEffect: {fileID: 0}
   triggerSprite: {fileID: 1364653218}
   gameEffectSprite: {fileID: 1951849665}
 --- !u!1 &1400747564
@@ -61910,7 +61912,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 265264045}
-  gameEffect: {fileID: 0}
   triggerSprite: {fileID: 1659770473}
   gameEffectSprite: {fileID: 515581343}
 --- !u!1001 &1698619963
@@ -62124,7 +62125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 265264045}
-  gameEffect: {fileID: 0}
   triggerSprite: {fileID: 1707258524}
   gameEffectSprite: {fileID: 1534611987}
 --- !u!1 &1764387174
@@ -62319,7 +62319,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 265264045}
-  gameEffect: {fileID: 0}
   triggerSprite: {fileID: 1802534922}
   gameEffectSprite: {fileID: 527112853}
 --- !u!1 &1858099228

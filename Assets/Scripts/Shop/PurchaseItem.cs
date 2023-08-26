@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Shop Item")]
 public class PurchaseItem : ScriptableObject
 {
-    [SerializeField] private string name;
+    [SerializeField] public string _name;
     [SerializeField] public int cost;
     [SerializeField] public CurrencyType currencyType;
 

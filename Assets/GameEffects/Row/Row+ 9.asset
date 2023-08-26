@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc5d7f48eeda7c948810452bf6b3a011, type: 3}
-  m_Name: Row+
+  m_Name: Row+ 9
   m_EditorClassIdentifier: 
-  name: Row+
-  cost: 10
+  _name: Row+
+  cost: 1500
   currencyType: 1
   effects:
   - rid: 1280795291213103109

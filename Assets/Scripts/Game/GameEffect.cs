@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class GameEffect
 {
-    [SerializeField] protected int magnitude;
+    [SerializeField] protected float magnitude;
     [SerializeField] protected Color associatedColor = Color.black;
     [SerializeField] public Sprite icon;
 
@@ -28,7 +28,7 @@ public class AddBounce: GameEffect
     {
         base.ApplyPurchaseEffect();
 
-        Debug.Log("added bounce");
+        GameStats.Instance.mutantMaterial.bounciness = magnitude;
     }
 }
 
@@ -39,7 +39,7 @@ public class AddCurrencyMultiplier: GameEffect
     {
         base.ApplyPurchaseEffect();
 
-        Debug.Log("added currency multiplier");
+        GameStats.Instance.currencyAddOnPickup = (int) magnitude;
     }
 }
 
@@ -51,7 +51,7 @@ public class AddCurrency: GameEffect
     public override void ApplyPurchaseEffect()
     {
         base.ApplyPurchaseEffect();
-        GameStats.Instance.AddCurrency(currencyType, magnitude);
+        GameStats.Instance.AddCurrency(currencyType, GameStats.Instance.currencyAddOnEffect);
     }
 }
 

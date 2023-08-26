@@ -11,6 +11,11 @@ public class GameStats : MonoBehaviour
     public int[] currencies {get; private set;} 
     [SerializeField] List<TextMeshProUGUI> currencyTexts;
 
+    [HideInInspector] public PhysicsMaterial2D mutantMaterial;
+
+    [HideInInspector] public int currencyAddOnPickup = 1;
+    [HideInInspector] public int currencyAddOnEffect = 1;
+
     private void Awake()
     {
         if(Instance != null && Instance != this) 

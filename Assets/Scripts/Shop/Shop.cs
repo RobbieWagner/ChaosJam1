@@ -30,11 +30,12 @@ public class Shop : MonoBehaviour
     {
         foreach(PurchaseButton shopItem in shopItems)
         {
-            int index = (int) shopItem.shopItem.currencyType;
+            int index = (int) shopItem.shopItems[0].currencyType;
             PurchaseButton newButton = Instantiate(shopItem.gameObject, shops[index].transform).GetComponent<PurchaseButton>();
             currentDisplayedShopItems.Add(newButton);
             newButton.shop = this;
         }
+        shopItems.Clear();
 
         canvas.enabled = true;
         shopDisplayed = true;
@@ -43,13 +44,13 @@ public class Shop : MonoBehaviour
         {
             StartCoroutine(ReadFirstTimeShopDialogue());
         }
-        else
-        {
-            foreach(PurchaseButton button in currentDisplayedShopItems)
-            {
-                button.canInteract = true;
-            }
-        }
+        // else
+        // {
+        //     foreach(PurchaseButton button in currentDisplayedShopItems)
+        //     {
+        //         button.canInteract = true;
+        //     }
+        // }
     }
 
     public void AddShopItem(PurchaseButton shopItem)
@@ -58,7 +59,7 @@ public class Shop : MonoBehaviour
 
         if(shopDisplayed)
         {
-            int index = (int) shopItem.shopItem.currencyType;
+            int index = (int) shopItem.shopItems[0].currencyType;
             PurchaseButton newButton = Instantiate(shopItem.gameObject, shops[index].transform).GetComponent<PurchaseButton>();
             currentDisplayedShopItems.Add(newButton);
         }
@@ -78,11 +79,11 @@ public class Shop : MonoBehaviour
     {
         if(hasEnteredShop)
         {
-            foreach(PurchaseButton item in currentDisplayedShopItems)
-            {
-                Destroy(item.gameObject);
-            }
-            currentDisplayedShopItems.Clear();
+            // foreach(PurchaseButton item in currentDisplayedShopItems)
+            // {
+            //     Destroy(item.gameObject);
+            // }
+            // currentDisplayedShopItems.Clear();
 
             canvas.enabled = false;
             shopDisplayed = false;

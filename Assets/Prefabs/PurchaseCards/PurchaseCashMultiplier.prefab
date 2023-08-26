@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 6573648324929638398}
   - component: {fileID: 2368391484039613077}
   m_Layer: 5
-  m_Name: PurchaseNewRowCard
+  m_Name: PurchaseCashMultiplier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,16 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 6573648324929638398}
   shopItems:
-  - {fileID: 11400000, guid: 9dda2b65803b5e54580e2b6d16ad7c26, type: 2}
-  - {fileID: 11400000, guid: 8a636d9477d94cc4083cbd2c13d005d2, type: 2}
-  - {fileID: 11400000, guid: e3afbbe0422c9d04dbd4bd0581cde670, type: 2}
-  - {fileID: 11400000, guid: f0f6f878b2f3ff1429fed774c36b0ace, type: 2}
-  - {fileID: 11400000, guid: a6648b9f6629d7248b621696503ec65d, type: 2}
-  - {fileID: 11400000, guid: b4e7ae565ec9dd04793255df16fc50dc, type: 2}
-  - {fileID: 11400000, guid: a301340a436081d42acc14cba36c1e39, type: 2}
-  - {fileID: 11400000, guid: dbc13800abc5f154e89de15c61ec1e92, type: 2}
-  - {fileID: 11400000, guid: 2aaf5c5dd82fc8b47ba03b7d4a1dcad2, type: 2}
-  - {fileID: 11400000, guid: d9ce53a33fcf4af439f4dc83aa80dc51, type: 2}
+  - {fileID: 11400000, guid: 877ab953d5153974eb953e175b2fba7e, type: 2}
   currentItemIndex: 0
   shop: {fileID: 0}
   itemText: {fileID: 6573648326232645765}

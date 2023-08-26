@@ -20,6 +20,8 @@ public class PegBallFall : MonoBehaviour
 
     private void Awake()
     {
+        GameStats.Instance.mutantMaterial = rb2d.sharedMaterial;
+        rb2d.sharedMaterial.bounciness = 0;
         ResetBall();
     }
 
