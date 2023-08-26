@@ -1695,6 +1695,7 @@ MonoBehaviour:
   - {fileID: 2368391484039613077, guid: 9c6fa28d9e8e99a49bf873b4cfdcb35d, type: 3}
   - {fileID: 2368391484039613077, guid: cb152fe0f1e29ef43b88ce2b73156119, type: 3}
   - {fileID: 2368391484039613077, guid: 1ce8ecc47059a0849b5541d49b9cb58f, type: 3}
+  - {fileID: 2368391484039613077, guid: ad5c1e22b879c254eb9ef18784c0c1e0, type: 3}
   - {fileID: 2368391484039613077, guid: 4b71b8a954e2f6f4fbbf108130c5d1fa, type: 3}
   - {fileID: 2368391484039613077, guid: ce2c1c9d7f1e840488377d4be9016544, type: 3}
   hasEnteredShop: 0
