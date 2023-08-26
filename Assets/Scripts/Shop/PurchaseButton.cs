@@ -10,7 +10,8 @@ public class PurchaseButton : MonoBehaviour
 {
     [SerializeField] private Button button;
     [SerializeField] public PurchaseItem shopItem;
-    [HideInInspector] public Shop shop;
+    //[HideInInspector] 
+    public Shop shop;
 
     [SerializeField] private TextMeshProUGUI itemText;
     [SerializeField] private TextMeshProUGUI costText;
@@ -37,10 +38,19 @@ public class PurchaseButton : MonoBehaviour
         {
             bool purchased = shopItem.Buy();
 
-            if(purchased)
-            {
-                shop.RemoveShopItem(this);
-            }
+            // if(purchased)
+            // {
+            //     if(costIndex < costs.Count - 1) 
+            //     {
+            //         shopItem.costIndex++;
+            //         //increase cost
+            //     }
+            //     else 
+            //     {
+            //         canInteract = false
+            //         costText = MAX
+            //     }
+            // }
         }
     }
 }

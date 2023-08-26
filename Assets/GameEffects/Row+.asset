@@ -13,16 +13,13 @@ MonoBehaviour:
   m_Name: Row+
   m_EditorClassIdentifier: 
   name: Row+
-  cost: 30
+  cost: 10
   currencyType: 1
   effects:
-  - rid: -2
   - rid: 1280795291213103109
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 1280795291213103109
       type: {class: AddRow, ns: , asm: Assembly-CSharp}
       data:

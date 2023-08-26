@@ -33,6 +33,7 @@ public class Shop : MonoBehaviour
             int index = (int) shopItem.shopItem.currencyType;
             PurchaseButton newButton = Instantiate(shopItem.gameObject, shops[index].transform).GetComponent<PurchaseButton>();
             currentDisplayedShopItems.Add(newButton);
+            newButton.shop = this;
         }
 
         canvas.enabled = true;
@@ -67,6 +68,7 @@ public class Shop : MonoBehaviour
     {
         if(shopItem != null && shopItems.Contains(shopItem))
         {
+            currentDisplayedShopItems.Remove(shopItem);
             shopItems.Remove(shopItem);
             Destroy(shopItem.gameObject);
         }

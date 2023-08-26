@@ -13,16 +13,13 @@ MonoBehaviour:
   m_Name: Bounce+
   m_EditorClassIdentifier: 
   name: Bounce+
-  cost: 5
+  cost: 3
   currencyType: 0
   effects:
-  - rid: -2
   - rid: 1280795291213103104
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 1280795291213103104
       type: {class: AddBounce, ns: , asm: Assembly-CSharp}
       data:
