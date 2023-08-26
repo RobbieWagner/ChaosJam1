@@ -44,6 +44,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""d2e9ea45-1a47-4533-bb2b-68de0bd09347"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -90,6 +99,61 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""ToggleUpgradesShop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""02f6433e-d8c1-44e8-8c3f-5435c69d9906"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""5bc734f6-4adf-4a38-9c0e-ab739fd28810"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""67c04c59-2b02-477a-b9d7-e82fa24a3575"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""524667bf-1b1c-4390-9968-b30e1e6a93e4"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""bbf0ed32-becb-4092-90ea-c74203a6035a"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -100,6 +164,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_DropButton = m_Game.FindAction("DropButton", throwIfNotFound: true);
         m_Game_ToggleUpgradesShop = m_Game.FindAction("ToggleUpgradesShop", throwIfNotFound: true);
+        m_Game_Move = m_Game.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,12 +228,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IGameActions> m_GameActionsCallbackInterfaces = new List<IGameActions>();
     private readonly InputAction m_Game_DropButton;
     private readonly InputAction m_Game_ToggleUpgradesShop;
+    private readonly InputAction m_Game_Move;
     public struct GameActions
     {
         private @PlayerControls m_Wrapper;
         public GameActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @DropButton => m_Wrapper.m_Game_DropButton;
         public InputAction @ToggleUpgradesShop => m_Wrapper.m_Game_ToggleUpgradesShop;
+        public InputAction @Move => m_Wrapper.m_Game_Move;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -184,6 +251,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ToggleUpgradesShop.started += instance.OnToggleUpgradesShop;
             @ToggleUpgradesShop.performed += instance.OnToggleUpgradesShop;
             @ToggleUpgradesShop.canceled += instance.OnToggleUpgradesShop;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -194,6 +264,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ToggleUpgradesShop.started -= instance.OnToggleUpgradesShop;
             @ToggleUpgradesShop.performed -= instance.OnToggleUpgradesShop;
             @ToggleUpgradesShop.canceled -= instance.OnToggleUpgradesShop;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -215,5 +288,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnDropButton(InputAction.CallbackContext context);
         void OnToggleUpgradesShop(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
 }

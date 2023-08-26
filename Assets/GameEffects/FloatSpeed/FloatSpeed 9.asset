@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc5d7f48eeda7c948810452bf6b3a011, type: 3}
+  m_Name: FloatSpeed 9
+  m_EditorClassIdentifier: 
+  _name: Speed+
+  cost: 1500
+  currencyType: 3
+  effects:
+  - rid: 1280795310522368000
+  references:
+    version: 2
+    RefIds:
+    - rid: 1280795310522368000
+      type: {class: UpgradeFloatSpeed, ns: , asm: Assembly-CSharp}
+      data:
+        magnitude: 10
+        associatedColor: {r: 1, g: 1, b: 0, a: 1}
+        icon: {fileID: 21300000, guid: 133ddb7f8f960c64383c812992a0ef1f, type: 3}

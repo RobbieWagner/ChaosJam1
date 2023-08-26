@@ -32,6 +32,9 @@ public class GameStats : MonoBehaviour
         {
             currencyTexts[i].text = currencies[i].ToString();
         }
+
+        currencyAddOnPickup = 1;
+        currencyAddOnEffect = 1;
     }
 
     public void AddCurrency(CurrencyType currencyType, int amount)

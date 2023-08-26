@@ -15,6 +15,7 @@ public class PurchaseButton : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI itemText;
     [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private Image icon;
 
     [HideInInspector] public bool canInteract = false;
 
@@ -30,6 +31,8 @@ public class PurchaseButton : MonoBehaviour
             costText.color = GameStats.Instance.GetCurrencyColor(shopItems[0].currencyType);
         }
         else costText.color = Color.black;
+
+        icon.sprite = shopItems[0].effects[0].icon;
     }
 
     private void PurchaseItem()

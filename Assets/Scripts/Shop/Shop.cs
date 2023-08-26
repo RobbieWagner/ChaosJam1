@@ -44,13 +44,6 @@ public class Shop : MonoBehaviour
         {
             StartCoroutine(ReadFirstTimeShopDialogue());
         }
-        // else
-        // {
-        //     foreach(PurchaseButton button in currentDisplayedShopItems)
-        //     {
-        //         button.canInteract = true;
-        //     }
-        // }
     }
 
     public void AddShopItem(PurchaseButton shopItem)

@@ -12,10 +12,15 @@ public class PurchaseItem : ScriptableObject
     [SerializeReference] public List<GameEffect> effects;
 
     [ContextMenu(nameof(AddBounceEffect))] void AddBounceEffect(){effects.Add(new AddBounce());}
+    [ContextMenu(nameof(Mass))] void Mass(){effects.Add(new AddMass());}
     [ContextMenu(nameof(AddCurrencyMultiplierEffect))] void AddCurrencyMultiplierEffect(){effects.Add(new AddCurrencyMultiplier());}
+    [ContextMenu(nameof(AddBasketUpgrade))] void AddBasketUpgrade(){effects.Add(new UpgradeBasketReward());}
     [ContextMenu(nameof(AddRowEffect))] void AddRowEffect(){effects.Add(new AddRow());}
 
     [ContextMenu(nameof(AddCurrencyEffect))] void AddCurrencyEffect(){effects.Add(new AddCurrency());}
+
+    [ContextMenu(nameof(AddFloatTimeUpgrade))] void AddFloatTimeUpgrade(){effects.Add(new UpgradeFloatTime());}
+    [ContextMenu(nameof(AddFloatSpeedUpgrade))] void AddFloatSpeedUpgrade(){effects.Add(new UpgradeFloatSpeed());}
     [ContextMenu(nameof(Clear))] void Clear(){effects.Clear();}
 
     public bool Buy()

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class PegBallFall : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rb2d;
+    [SerializeField] public Rigidbody2D rb2d;
     private bool waitingToMove = false;
     private IEnumerator movementCoroutine = null;
 
@@ -18,10 +18,19 @@ public class PegBallFall : MonoBehaviour
     [SerializeField] private float minXSwingPosition;
     [SerializeField] private Vector3 startingPosition = Vector3.zero;
 
+    //Extras
+    bool floating = false;
+    [HideInInspector] public float springForce = 0;
+    [HideInInspector] public float floatSpeed;
+    [HideInInspector] public float maxFloatTime = .5f;
+    private float floatTime;
+    [SerializeField] private SpriteRenderer floatSprite;
+
     private void Awake()
     {
         GameStats.Instance.mutantMaterial = rb2d.sharedMaterial;
         rb2d.sharedMaterial.bounciness = 0;
+        floatSpeed = 2;
         ResetBall();
     }
 
@@ -48,6 +57,18 @@ public class PegBallFall : MonoBehaviour
         else
         {
             rb2d.gravityScale = 0;
+        }
+
+        if(floating)
+        {
+            floatTime -= Time.deltaTime;
+            if(floatTime <= 0)
+            {
+                floating = false;
+                rb2d.gravityScale = 1;
+                floatSprite.enabled = false;
+                rb2d.velocity = Vector2.zero;
+            }
         }
     }
 
@@ -106,10 +127,40 @@ public class PegBallFall : MonoBehaviour
 
     private void OnDropButton()
     {
+        if(falling && floatTime > 0)
+        {
+            if(!floating)
+            {
+                floating = true;
+                rb2d.gravityScale = 0;
+                floatSprite.enabled = true;
+                rb2d.velocity = Vector2.zero;
+                rb2d.angularVelocity = 0;
+            }
+            else if(floating)
+            {
+                floating = false;
+                rb2d.gravityScale = 1;
+                floatSprite.enabled = false;
+                rb2d.velocity = Vector2.zero;
+            }
+        }
+
         if(!falling && canDrop)
         {
             rb2d.gravityScale = 1;
             falling = true;
+        }
+    }
+
+    private void OnMove(InputValue value)
+    {
+        if(floating)
+        {
+            float movement = value.Get<float>();
+
+            if(movement >= 0f) rb2d.velocity = new Vector2(floatSpeed, 0);
+            else rb2d.velocity = new Vector2(-floatSpeed, 0);
         }
     }
 
@@ -118,9 +169,11 @@ public class PegBallFall : MonoBehaviour
         transform.position = startingPosition;
         rb2d.velocity = Vector2.zero;
         rb2d.angularVelocity = 0;
+        floatSprite.enabled = false;
         falling = false;
         canDrop = true;
         rb2d.gravityScale = 0;
+        floatTime = maxFloatTime;
         StartCoroutine(BallSwing());
         OnResetBall?.Invoke();
     }

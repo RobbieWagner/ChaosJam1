@@ -67,3 +67,43 @@ public class AddRow: GameEffect
         DropperGame.Instance.AddRow(rowPrefab, height);
     }
 }
+
+[Serializable]
+public class UpgradeFloatTime: GameEffect
+{
+    public override void ApplyPurchaseEffect()
+    {
+        base.ApplyPurchaseEffect();
+        GameManager.Instance.ball.maxFloatTime = magnitude;
+    }
+}
+
+[Serializable]
+public class UpgradeFloatSpeed: GameEffect
+{
+    public override void ApplyPurchaseEffect()
+    {
+        base.ApplyPurchaseEffect();
+        GameManager.Instance.ball.floatSpeed = magnitude;
+    }
+}
+
+[Serializable]
+public class UpgradeBasketReward: GameEffect
+{
+    public override void ApplyPurchaseEffect()
+    {
+        base.ApplyPurchaseEffect();
+        GameStats.Instance.currencyAddOnEffect = (int) magnitude;
+    }
+}
+
+[Serializable]
+public class AddMass: GameEffect
+{
+    public override void ApplyPurchaseEffect()
+    {
+        base.ApplyPurchaseEffect();
+        GameManager.Instance.ball.rb2d.mass = magnitude;
+    }
+}

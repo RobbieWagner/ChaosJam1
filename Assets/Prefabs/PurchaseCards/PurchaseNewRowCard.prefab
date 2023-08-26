@@ -134,6 +134,81 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &5361100534510804094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2736443612969600095}
+  - component: {fileID: 4849081288453430790}
+  - component: {fileID: 7941926613684045768}
+  m_Layer: 5
+  m_Name: icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2736443612969600095
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361100534510804094}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6573648324929638397}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -40, y: 0}
+  m_SizeDelta: {x: 32, y: 32}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4849081288453430790
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361100534510804094}
+  m_CullTransparentMesh: 1
+--- !u!114 &7941926613684045768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361100534510804094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6573648324929638396
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +241,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2736443612969600095}
   - {fileID: 6573648326232645764}
   - {fileID: 4602058609388736039}
   m_Father: {fileID: 0}
@@ -271,20 +347,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 6573648324929638398}
   shopItems:
-  - {fileID: 11400000, guid: 9dda2b65803b5e54580e2b6d16ad7c26, type: 2}
-  - {fileID: 11400000, guid: 8a636d9477d94cc4083cbd2c13d005d2, type: 2}
-  - {fileID: 11400000, guid: e3afbbe0422c9d04dbd4bd0581cde670, type: 2}
-  - {fileID: 11400000, guid: f0f6f878b2f3ff1429fed774c36b0ace, type: 2}
-  - {fileID: 11400000, guid: a6648b9f6629d7248b621696503ec65d, type: 2}
-  - {fileID: 11400000, guid: b4e7ae565ec9dd04793255df16fc50dc, type: 2}
-  - {fileID: 11400000, guid: a301340a436081d42acc14cba36c1e39, type: 2}
-  - {fileID: 11400000, guid: dbc13800abc5f154e89de15c61ec1e92, type: 2}
-  - {fileID: 11400000, guid: 2aaf5c5dd82fc8b47ba03b7d4a1dcad2, type: 2}
-  - {fileID: 11400000, guid: d9ce53a33fcf4af439f4dc83aa80dc51, type: 2}
+  - {fileID: 11400000, guid: 877ab953d5153974eb953e175b2fba7e, type: 2}
+  - {fileID: 11400000, guid: 8765076400b2c7148b9355fd32b8dcfb, type: 2}
+  - {fileID: 11400000, guid: e9bc199533d52e442b19c9208d993fd3, type: 2}
+  - {fileID: 11400000, guid: 6cdc7136d2e2386469edc7fd6f160cb1, type: 2}
+  - {fileID: 11400000, guid: 0828f6c48f62fff4cbc9b07bf30e763c, type: 2}
+  - {fileID: 11400000, guid: cfd572b45e2d5f54ca24a3c3c18fdf30, type: 2}
+  - {fileID: 11400000, guid: f4e3f1252ec8aaf4b94ec45d1c8f5798, type: 2}
+  - {fileID: 11400000, guid: 1f3304c69da67374a95ddbf4a1e20341, type: 2}
+  - {fileID: 11400000, guid: 95bc700f9900a3f4b9e13500b69fe22a, type: 2}
+  - {fileID: 11400000, guid: 6ce19dec352ac7741bc0ed9817d88fa8, type: 2}
   currentItemIndex: 0
   shop: {fileID: 0}
   itemText: {fileID: 6573648326232645765}
   costText: {fileID: 7014600575350432244}
+  icon: {fileID: 7941926613684045768}
   canInteract: 0
 --- !u!1 &6573648326232645763
 GameObject:
