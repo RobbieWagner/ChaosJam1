@@ -515,6 +515,7 @@ MonoBehaviour:
   - {fileID: 1621810189}
   - {fileID: 1868088202}
   - {fileID: 2146989605}
+  currencyChangePrefab: {fileID: 1733844425077722885, guid: e5e7b6c81dc66b34e87c48dd97122a62, type: 3}
   mutantMaterial: {fileID: 0}
   currencyAddOnPickup: 0
   currencyAddOnEffect: 0

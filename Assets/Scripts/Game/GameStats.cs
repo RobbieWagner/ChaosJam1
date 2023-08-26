@@ -9,7 +9,8 @@ public class GameStats : MonoBehaviour
     public static GameStats Instance {get; private set;}
 
     public int[] currencies {get; private set;} 
-    [SerializeField] List<TextMeshProUGUI> currencyTexts;
+    [SerializeField] private List<TextMeshProUGUI> currencyTexts;
+    [SerializeField] private TextMeshProUGUI currencyChangePrefab;
 
     [HideInInspector] public PhysicsMaterial2D mutantMaterial;
 
@@ -43,6 +44,8 @@ public class GameStats : MonoBehaviour
         currencies[index] += amount;
         if(currencies[index] > 99999) currencies[index] = 99999;
         currencyTexts[index].text = currencies[index].ToString();
+
+        StartCoroutine(FlashAdditionText(currencyType, amount));
     }
 
     public Color GetCurrencyColor(CurrencyType currencyType)
@@ -52,5 +55,25 @@ public class GameStats : MonoBehaviour
         if(currencyType == CurrencyType.BLUE) return Color.blue;
         if(currencyType == CurrencyType.YELLOW) return Color.yellow;
         else return Color.black;
+    }
+
+    private IEnumerator FlashAdditionText(CurrencyType currencyType, int amount)
+    {
+        TextMeshProUGUI currencyChangeText = Instantiate(currencyChangePrefab, currencyTexts[(int) currencyType].transform).GetComponent<TextMeshProUGUI>();
+        RectTransform rectTransform = currencyChangeText.gameObject.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = new Vector2(0, 0);
+
+        if(amount >= 0)
+        {
+            currencyChangeText.text = "+" + amount.ToString();
+        }
+        else
+        {
+            currencyChangeText.text = amount.ToString();
+        }
+
+        yield return new WaitForSeconds(1.25f);
+        Destroy(currencyChangeText.gameObject);
+        StopCoroutine(FlashAdditionText(currencyType, amount));
     }
 }
